@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+
+  app:
+    build:
+      dockerfile: Dockerfile-prod
+    environment:
+      LETSENCRYPT_HOST: markcinco.me
+      NODE_ENV: production
+    expose:
+      - 80
+

@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+
+  app:
+    container_name: ${APP_NAME}-app
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+      NODE_ENV: development
+    volumes:
+      - './app:/app'
+      - '/app/node_modules'
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
